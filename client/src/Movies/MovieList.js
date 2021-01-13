@@ -1,11 +1,15 @@
 import React from 'react';
-import {Link, useRouteMethod} from 'react-router-dom';
+import {Link, useRouteMatch} from 'react-router-dom';
 
 export default function MovieList(props) {
+  const { url } = useRouteMatch();
+  console.log(url);
   return (
     <div className="movie-list">
       {props.movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+        <Link to={`${url}movies/${movie.id}`}style={{textDecoration: 'none', color: 'black'}}>
+          <MovieDetails key={movie.id} movie={movie} />
+        </Link>
       ))}
     </div>
   );
