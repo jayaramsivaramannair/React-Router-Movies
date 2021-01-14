@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
 import Movie from './Movies/Movie';
 import MovieList from './Movies/MovieList';
-import MovieCard from './Movies/MovieCard';
 
 import SavedList from './Movies/SavedList';
 
@@ -30,7 +29,7 @@ export default function App () {
   console.log(movieList);
   const addToSavedList = (id) => {
     // This is stretch. Prevent the same movie from being "saved" more than once
-    movieList.map((movie) => {
+    movieList.forEach((movie) => {
       if(movie.id === Number(id)) {
         if(!saved.includes(movie)) {
           setSaved([...saved, movie]);
