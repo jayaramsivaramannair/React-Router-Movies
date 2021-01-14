@@ -27,11 +27,14 @@ export default function App () {
     getMovies();
   }, [ ]);
 
-  const addToSavedList = id => {
+  console.log(movieList);
+  const addToSavedList = (id) => {
     // This is stretch. Prevent the same movie from being "saved" more than once
     movieList.map((movie) => {
-      if(movie.id === id) {
-        setSaved([...saved. movie]);
+      if(movie.id == id) {
+        if(!saved.includes(movie)) {
+          setSaved([...saved, movie]);
+        }
       }
     })
   };
